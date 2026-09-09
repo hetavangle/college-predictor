@@ -13,5 +13,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${inter.variable} antialiased`}><Providers><a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:p-4">Skip to content</a><Navbar />{children}<Footer /></Providers></body></html>;
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} antialiased`} suppressHydrationWarning>
+        <Providers>
+          <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:p-4">
+            Skip to content
+          </a>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
+      </body>
+    </html>
+  );
 }
