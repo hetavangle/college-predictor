@@ -1,22 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { m } from "framer-motion";
-import { ArrowUpRight, Atom, CalendarClock, LockKeyhole, Stethoscope } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export function ExamCards() {
-  return <div className="mt-4 grid gap-5 md:grid-cols-2">
-    <button disabled className="relative order-2 min-h-[270px] cursor-not-allowed overflow-hidden rounded-2xl border border-slate-300 bg-white p-7 text-left opacity-50 grayscale md:order-1 sm:p-8" aria-label="JEE (Engineering), 2026 session completed 2027 session coming soon">
-      <Atom aria-hidden="true" size={180} strokeWidth={.6} className="absolute top-12 -right-5 rotate-12 text-slate-300" />
-      <div className="relative"><div className="mb-7 flex items-center justify-between"><span className="flex size-11 items-center justify-center rounded-xl border border-slate-200 bg-slate-100"><Atom size={25} strokeWidth={1.5} /></span><span className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[10px] font-semibold"><LockKeyhole size={11} />COMING SOON</span></div><h3 className="text-[27px] font-semibold tracking-tight">JEE <span className="text-xl font-normal">(Engineering)</span></h3><p className="mt-2 text-[13px]">For the minds that build tomorrow.</p><div className="mt-7 flex max-w-80 items-center gap-2 text-xs leading-5"><CalendarClock size={16} className="shrink-0" /><span>2026 session completed 2027 session coming soon</span></div></div>
-    </button>
-    <m.div whileHover={{ scale: 1.05 }} whileTap={{ scale: .99 }} className="relative order-1 rounded-2xl shadow-[0_15px_40px_-15px_#4f46e570] md:order-2">
-      <Link href="/predictor" className="group relative block h-full min-h-[270px] overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-800 via-indigo-700 to-teal-700 p-7 text-white sm:p-8">
-        <Image src="/images/neet-science.webp" alt="" fill preload sizes="(max-width: 768px) 100vw, 560px" className="object-cover object-right opacity-60 transition duration-500 group-hover:opacity-80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#30237b] via-[#30237b]/85 to-transparent" />
-        <div className="relative"><div className="mb-7 flex items-center justify-between"><span className="flex size-11 items-center justify-center rounded-xl border border-white/20 bg-white/10 backdrop-blur"><Stethoscope size={24} strokeWidth={1.5} /></span><span className="flex items-center gap-1.5 rounded-full border border-teal-200/25 bg-teal-100/15 px-3 py-1 text-[10px] font-semibold tracking-wide text-teal-100"><span className="size-1.5 rounded-full bg-teal-300" />READY TO EXPLORE</span></div><h3 className="text-[27px] font-semibold tracking-tight">NEET <span className="text-xl font-normal">(Medical)</span></h3><p className="mt-2 text-[13px] text-indigo-100">Predict MBBS, BDS, and AYUSH Admissions</p><div className="mt-7 flex items-center justify-between"><span className="text-[13px] font-semibold">Find my colleges <ArrowUpRight size={16} className="ml-1 inline transition group-hover:translate-x-1 group-hover:-translate-y-1" /></span><span className="text-[11px] text-indigo-100">Your future in care starts here</span></div></div>
-      </Link>
-    </m.div>
+  return <div className="mt-6 grid gap-4 md:grid-cols-2">
+    <div className="flex flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-6 sm:p-7">
+      <div className="flex items-center justify-between">
+        <span className="text-xs font-medium tracking-wide text-zinc-500 uppercase">Engineering</span>
+        <span className="rounded-full border border-zinc-300 px-2.5 py-0.5 text-xs text-zinc-500">Coming 2027</span>
+      </div>
+      <h3 className="mt-8 text-xl font-semibold tracking-tight">JEE College Predictor</h3>
+      <p className="mt-1.5 text-sm text-zinc-500">The 2026 session is complete. The 2027 session opens after JEE results.</p>
+    </div>
+    <Link href="/predictor" className="group flex flex-col rounded-2xl bg-zinc-900 p-6 text-white sm:p-7">
+      <span className="text-xs font-medium tracking-wide text-zinc-400 uppercase">Medical</span>
+      <h3 className="mt-8 text-xl font-semibold tracking-tight">NEET College Predictor</h3>
+      <p className="mt-1.5 text-sm text-zinc-400">Check MBBS, BDS and AYUSH admission chances by rank, category and state.</p>
+      <span className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium underline-offset-4 group-hover:underline">
+        Open predictor <ArrowUpRight size={15} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </span>
+    </Link>
   </div>;
 }

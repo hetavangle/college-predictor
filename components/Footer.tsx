@@ -1,4 +1,3 @@
-import { Compass, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const socialLinks = [
@@ -9,5 +8,24 @@ const socialLinks = [
 ];
 
 export function Footer() {
-  return <footer className="border-t border-slate-200/80 bg-white py-8"><div className="page-shell text-xs text-slate-500"><div className="flex flex-col justify-between gap-6 border-b border-slate-200 pb-7 sm:flex-row sm:items-start"><div><div className="flex items-center gap-2"><Compass size={18} className="text-indigo-600" /><span>Exam Intel <span className="mx-2 text-slate-300">/</span> Your future, a little clearer.</span></div><p className="mt-3 text-slate-400">Stay updated on our platform.</p></div><div><p className="font-semibold text-slate-700">Follow Exam Intel on all platforms</p><div className="mt-3 flex max-w-lg flex-wrap gap-x-5 gap-y-3">{socialLinks.map(({ label, href }) => <a key={label} href={href} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 transition hover:text-indigo-600">{label}<ArrowUpRight size={13} /></a>)}</div></div></div><div className="flex flex-col justify-between gap-4 pt-6 sm:flex-row sm:items-center"><span>Made by Anurag Soroya</span><Link href="/#faqs" className="flex items-center gap-1 hover:text-indigo-600">Need a little clarity?<ArrowUpRight size={13} /></Link></div></div></footer>;
+  return <footer className="border-t border-zinc-200 py-8">
+    <div className="page-shell text-sm text-zinc-500">
+      <div className="flex flex-col justify-between gap-6 border-b border-zinc-200 pb-6 sm:flex-row sm:items-start">
+        <div>
+          <p className="font-semibold text-zinc-900">Exam Intel</p>
+          <p className="mt-2 text-xs">Exam notifications, counselling dates and cutoffs in one place. Running since May 2024.</p>
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-zinc-900">Elsewhere</p>
+          <div className="mt-2.5 flex max-w-lg flex-wrap gap-x-5 gap-y-2 text-xs">
+            {socialLinks.map(({ label, href }) => <a key={label} href={href} target="_blank" rel="noreferrer" className="hover:text-zinc-900 hover:underline">{label}</a>)}
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col justify-between gap-3 pt-6 text-xs sm:flex-row sm:items-center">
+        <span>Made by Anurag Soroya</span>
+        <Link href="/#faqs" className="hover:text-zinc-900 hover:underline">FAQs</Link>
+      </div>
+    </div>
+  </footer>;
 }
